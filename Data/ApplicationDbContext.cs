@@ -8,23 +8,24 @@ using Microsoft.AspNetCore.Identity;
 
 namespace AspNetCoreTodo.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
         public DbSet<TodoItem> Items { get; set; }
+        
         //fix for "Specified key was too long" error message in migrations. From https://www.junian.net/aspnet-core-mysql-ubuntu-16-04/
         protected override void OnModelCreating(ModelBuilder builder)  
         {  
             base.OnModelCreating(builder);  
         
-            builder.Entity<ApplicationUser>(entity => entity.Property(m => m.Id)  
+            builder.Entity<IdentityUser>(entity => entity.Property(m => m.Id)  
                 .HasMaxLength(255));  
-            builder.Entity<ApplicationUser>(entity => entity.Property(m => m.NormalizedEmail)  
+            builder.Entity<IdentityUser>(entity => entity.Property(m => m.NormalizedEmail)  
                 .HasMaxLength(255));  
-            builder.Entity<ApplicationUser>(entity => entity.Property(m => m.NormalizedUserName)  
+            builder.Entity<IdentityUser>(entity => entity.Property(m => m.NormalizedUserName)  
                 .HasMaxLength(255));  
         
             builder.Entity<IdentityRole>(entity => entity.Property(m => m.Id)  
