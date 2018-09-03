@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 using AspNetCoreTodo.Services;
 using AspNetCoreTodo.Data;
+using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo
 {
@@ -44,7 +45,7 @@ namespace AspNetCoreTodo
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("MySqlConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>()
+            services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
