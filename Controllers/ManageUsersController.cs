@@ -9,7 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspNetCoreTodo.Controllers
 {
-    [Authorize(Roles = Constants.AdministratorRole)]
+    //[Authorize(Roles = Constants.AdministratorRole)]
+    [Authorize]
     public class ManageUsersController : Controller
     {
         private readonly UserManager<ApplicationUser>_userManager;
