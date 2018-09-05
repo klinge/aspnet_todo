@@ -77,23 +77,6 @@
         
     </environment>
     
-    <!--Script for datepicker on Todo.AddItemPartial-->
-    <script>
-        $( document ).ready(function() {
-            $('.date-field').datepicker({
-                format: "yyyy-mm-dd",
-                startDate: "today",
-                weekStart: 1,
-                maxViewMode: 3,
-                todayBtn: "linked",
-                language: "sv",
-                autoclose: true,
-                todayHighlight: true
-            });
-            console.log( "ready!" );
-        });        
-    </script>
-    
     @RenderSection("Scripts", required: false)
 </body>
 </html>
