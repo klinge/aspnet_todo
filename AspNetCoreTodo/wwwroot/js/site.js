@@ -8,19 +8,6 @@ $(document).ready(function() {
     $('.done-checkbox').on('click', function(e) {
         markCompleted(e.target);
     });
-    
-    //add bootstrap datepicker on date input in AddItemPartial
-    $('.date-field').datepicker({
-        format: "yyyy-mm-dd",
-        startDate: "today",
-        weekStart: 1,
-        maxViewMode: 3,
-        todayBtn: "linked",
-        language: "sv",
-        autoclose: true,
-        todayHighlight: true
-    });
-
 });
 
 function markCompleted(checkbox) {

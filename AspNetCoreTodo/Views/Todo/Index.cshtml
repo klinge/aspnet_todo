@@ -36,3 +36,24 @@
         @await Html.PartialAsync("AddItemPartial", new TodoItem())
     </div>
 </div>
+
+<!-- Scripts section get inserted at end in the shared _Layout -->
+@section scripts {
+
+<script>
+$(document).ready(function() {
+    //add bootstrap datepicker on date input in AddItemPartial
+    $('.date-field').datepicker({
+        format: "yyyy-mm-dd",
+        startDate: "today",
+        weekStart: 1,
+        maxViewMode: 3,
+        todayBtn: "linked",
+        language: "sv",
+        autoclose: true,
+        todayHighlight: true
+    });
+});
+</script>
+
+}
