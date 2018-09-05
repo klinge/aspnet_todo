@@ -29,7 +29,12 @@ namespace AspNetCoreTodo.Services
         {
             newItem.Id = Guid.NewGuid();
             newItem.IsDone = false;
-            newItem.DueAt = DateTimeOffset.Now.AddDays(3);
+            //set due in three days if no value provided
+            if ( !newItem.DueAt.HasValue )
+            {
+                newItem.DueAt = DateTimeOffset.Now.AddDays(3);
+            }
+            
 
             _context.Items.Add(newItem);
 
