@@ -23,5 +23,10 @@ namespace AspNetCoreTodo.Services
 
             return Task.FromResult(new[] { item1, item2 });
         }
+        public async Task<bool> AddItemAsync(TodoItem newItem)
+        {
+            //fake class does not add items
+            return false;
+        }
     }
 }
